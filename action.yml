@@ -1,0 +1,6 @@
+name: 'Android Builder'
+description: 'Builds Android projects'
+author: 'William Kamp - manimaul@gmail.com'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
