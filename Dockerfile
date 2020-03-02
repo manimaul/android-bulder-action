@@ -14,6 +14,6 @@ ENV PATH ${ANDROID_SDK_ROOT}/tools/bin:${PATH}
 
 #https://developer.android.com/studio/command-line/sdkmanager
 RUN yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
-RUN sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-29" "ndk;21.0.6113669"
+RUN sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-29" "ndk;21.0.5594570"
 
 WORKDIR /build
