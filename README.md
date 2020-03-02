@@ -4,7 +4,7 @@
 which can be used to build Android projects using android-29 and/or ndk;21.0.6113669 .
 
 
-Example `.github/workflows/android.yml` :
+Github Action Example `.github/workflows/android.yml` :
 
 ```yaml
 name: Android CI
@@ -18,9 +18,16 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v2
       - name: Build with Gradle
-        uses: manimaul/android-builder-action@android-29
+        uses: manimaul/android-builder-action@android-29_ndk-21.0.6113669
         with:
           entrypoint: /github/workspace/gradlew
           args: build
 
 ```
+
+Docker example:
+```bash
+docker build -t android-builder $(pwd)
+docker run -v /path/to/android/project:/build --entrypoint /build/gradlew android-builder build
+```
+
