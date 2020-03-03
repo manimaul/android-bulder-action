@@ -11,13 +11,13 @@ jobs:
       - name: Docker Auth
         run: docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${{ secrets.GITHUB_TOKEN }}
       - name: Docker Build
-        run: docker build -t docker.pkg.github.com/android-builder-action:latest $(pwd)
+        run: docker build -t docker.pkg.github.com/manimaul/android-builder-action/android:latest $(pwd)
       - name: Docker Publish
         if: startsWith(github.ref, 'refs/tags')
         run: |
           TAG=$(echo ${{ github.ref }} | sed 's/refs\/tags\/s*//')
           echo "TAG is ${TAG}"
-          TAG_PREFIX="docker.pkg.github.com/manimaul/android-builder-action/android-builder"
+          TAG_PREFIX="docker.pkg.github.com/manimaul/android-builder-action/android"
           docker tag ${TAG_PREFIX}:latest ${TAG_PREFIX}:${TAG}
           echo "pushing ${TAG_PREFIX}:${TAG}"
           docker push ${TAG_PREFIX}:${TAG}
