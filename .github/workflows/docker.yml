@@ -10,6 +10,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Docker Auth
         run: docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${{ secrets.GITHUB_TOKEN }}
-      - name: Docker Build
-        run: docker build -t docker.pkg.github.com/android-builder-action:latest $(pwd)
-
+#      - name: Docker Build
+#        run: docker build -t docker.pkg.github.com/android-builder-action:latest $(pwd)
+      - name: Docker Publish
+        #if: startsWith(github.ref, 'refs/tags')
+        run: |
+          $TAG=$(echo "$REF" | sed 's/refs\/tags\/s*//')
+          echo "TAG is ${TAG}"
+#          docker push docker.pkg.github.com/android-builder-action:${TAG}
