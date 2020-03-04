@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     env:
-      TAG_PREFIX "docker.pkg.github.com/manimaul/android-builder-action/android-sdk"
+      TAG_PREFIX: "docker.pkg.github.com/manimaul/android-builder-action/android-sdk"
     runs-on: ubuntu-latest
     steps:
       - name: Git Checkout
