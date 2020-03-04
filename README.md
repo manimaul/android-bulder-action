@@ -18,16 +18,18 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v2
       - name: Build with Gradle
-        uses: manimaul/android-builder-action@android-29_ndk-21.0.6113669
+        uses: manimaul/android-builder-action@v1
         with:
           entrypoint: /github/workspace/gradlew
-          args: build
-
+          args: --no-daemon build
 ```
 
-Docker example:
+Build your Android project with just the android-sdk Docker container:
 ```bash
-docker build -t android-builder $(pwd)
-docker run -v /path/to/android/project:/build --entrypoint /build/gradlew android-builder build
+cd /path/to/your/android/project
+docker run -v $(pwd):/build \
+            -w /build \
+            --entrypoint /build/gradlew \
+            docker.pkg.github.com/manimaul/android-builder-action/android-sdk:latest \
+            --no-daemon build
 ```
-
