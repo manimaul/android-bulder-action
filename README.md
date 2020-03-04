@@ -30,6 +30,6 @@ cd /path/to/your/android/project
 docker run -v $(pwd):/build \
             -w /build \
             --entrypoint /build/gradlew \
-            docker.pkg.github.com/manimaul/android-builder-action/android-sdk:latest \
+            manimaul/android-sdk:latest \
             --no-daemon build
 ```
