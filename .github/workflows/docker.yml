@@ -23,8 +23,8 @@ jobs:
           echo "pushing ${TAG_PREFIX}:${TAG}"
           docker push ${TAG_PREFIX}:${TAG}
       - name: Docker Publish Latest
-          if: github.ref == 'refs/heads/master'
-          run: |
-            docker tag android-sdk ${TAG_PREFIX}:latest
-            echo "pushing ${TAG_PREFIX}:latest"
-            docker push ${TAG_PREFIX}:latest
+        if: github.ref == 'refs/heads/master'
+        run: |
+          docker tag android-sdk ${TAG_PREFIX}:latest
+          echo "pushing ${TAG_PREFIX}:latest"
+          docker push ${TAG_PREFIX}:latest
