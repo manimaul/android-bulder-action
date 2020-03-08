@@ -18,7 +18,7 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v2
       - name: Build with Gradle
-        uses: manimaul/android-builder-action@v1
+        uses: manimaul/android-builder-action@v2
         with:
           entrypoint: /github/workspace/gradlew
           args: --no-daemon build

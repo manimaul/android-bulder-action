@@ -1,3 +1,3 @@
-FROM manimaul/android-sdk:v1
+FROM manimaul/android-sdk:v2
 
 WORKDIR /github/workspace
